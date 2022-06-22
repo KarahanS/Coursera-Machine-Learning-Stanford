@@ -1,2 +1,6 @@
 # Coursera-Machine-Learning-Stanford
-My solutions to the assignments given in the course Machine Learning by Andrew Ng of the Princeton University.
+My solutions to all the programming assignments of Machine Learning course given by Andrew Ng.
+
+
+# Notes
+* In Week #2 assigment, we use a MATLAB built-in function called ```fminunc```. MATLAB's ```fminunc``` is an optimization solver that finds the minimum of an unconstrained function. It requires you to install [Optimization Toolbox](https://www.mathworks.com/products/optimization.html). For logistic regression, we want to optimize the cost function  with parameters. Concretely, we have used ```fminunc``` to find the best parameters for the logistic regression cost function, given a fixed dataset (of  <img src="https://render.githubusercontent.com/render/math?math=\large X">and  <img src="https://render.githubusercontent.com/render/math?math=\large y"> values).
