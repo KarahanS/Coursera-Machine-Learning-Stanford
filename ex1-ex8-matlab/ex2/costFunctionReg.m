@@ -17,9 +17,21 @@ grad = zeros(size(theta));
 %               Compute the partial derivatives and set grad to the partial
 %               derivatives of the cost w.r.t. each parameter in theta
 
+% X = m x (n+1)
+% theta = (n+1) x 1
+% y = m x 1
+% X * theta = m x 1
 
+% scalar value
+% Do not regularize theta(1).
+J = (1/m) * sum(transpose(-y) * log(sigmoid(X * theta))   - transpose(1- y) * log(1 - sigmoid(X * theta))) + (lambda/(2 * m)) * sum(theta(2:end).^2);
 
+% number of features = n 
+% theta vector = (n+1)x1
+% grad = (n+1)x1
 
+grad = (1/m) .* (transpose(X) * (sigmoid(X * theta) - y)) + (lambda/m) .* theta;
+grad(1) = grad(1) - (lambda/m) .* theta(1);
 
 
 % =============================================================

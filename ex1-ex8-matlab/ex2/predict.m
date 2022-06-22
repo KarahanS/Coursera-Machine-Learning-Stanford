@@ -15,7 +15,14 @@ p = zeros(m, 1);
 %               You should set p to a vector of 0's and 1's
 %
 
-
+% X = m x (n+1)
+% theta = (n+1) x 1
+M =  X * theta;  % M = m x 1 
+negloc = M < 0;
+posloc = M >= 0;
+% Use those lists to index into M.
+p(negloc) = 0;
+p(posloc) = 1;
 
 
 
