@@ -25,11 +25,11 @@ p = zeros(size(X, 1), 1);
 % Theta1 has size 25 x 401
 % Theta2 has size 10 x 26
 X = [ones(m,1) X];
-a2 = transpose(sigmoid(Theta1 * transpose(X)));
+a2 = sigmoid(X * transpose(Theta1));
 % a2 = 5000 x 25
 a2 = [ones(m,1) a2];
-% a2 = 5000 x 26
-output = transpose(sigmoid(Theta2 * transpose(a2)));
+% a2 = 5000 x 26 (bias unit)
+output = sigmoid(a2 * transpose(Theta2));
 % output = 5000 x 10
 [~, p] = max(output, [], 2);
 
