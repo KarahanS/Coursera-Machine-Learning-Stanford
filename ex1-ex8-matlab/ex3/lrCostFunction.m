@@ -37,11 +37,18 @@ grad = zeros(size(theta));
 %
 
 
+% J must be a scalar
+% y = (m) x 1
+% X = (m) x (n + 1)
+% theta = (n + 1) x 1
+
+J = (1/m) * sum((y .* -log(sigmoid(X * theta)) + ((1-y) .* -log(1 - sigmoid(X * theta))))) + (lambda / (2 * m)) * sum(theta .^ 2) -  (lambda / (2 * m)) * (theta(1) .^ 2);
 
 
-
-
-
+grad = (1/m) * transpose(X) * (sigmoid(X * theta) - y);
+temp = theta;
+temp(1) = 0;
+grad = grad + (lambda/m) * temp;
 
 
 

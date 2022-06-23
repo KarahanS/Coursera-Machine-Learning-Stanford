@@ -50,6 +50,19 @@ X = [ones(m, 1) X];
 %
 
 
+% all_thetas = (number of labels) x (n + 1)
+% we have to train (number of labels) many classifiers
+for i = 1:num_labels
+    % (y == i): 1 if i is the positive label for this classifier, otherwise 0
+    initial_theta = zeros(n + 1, 1);
+
+    options = optimset('GradObj', 'on', 'MaxIter', 50);
+    [theta] = ...
+        fmincg (@(t)(lrCostFunction(t, X, (y == i), lambda)), ...
+                 initial_theta, options);
+    all_theta(i, :) = theta;
+end
+
 
 
 

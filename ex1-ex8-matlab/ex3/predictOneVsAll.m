@@ -30,8 +30,10 @@ X = [ones(m, 1) X];
 %       for each row.
 %       
 
-
-
+% X = m x (n+1)
+% all_theta = (number of labels) x (n + 1)
+% p = m x 1
+[~, p] = max(X * transpose(all_theta), [], 2);
 
 
 
