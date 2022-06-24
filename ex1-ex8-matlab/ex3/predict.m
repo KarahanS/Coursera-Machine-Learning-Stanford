@@ -45,7 +45,7 @@ output = sigmoid(Theta2 * a2); % (10x26) * (26x5000) = 10x5000
 % output = 10 x 5000  (first row corresponds to the probability of it being
 % class 1 for each training example)
 [~, p] = max(transpose(output), [], 2);
-}%
+%}
 
 
 
