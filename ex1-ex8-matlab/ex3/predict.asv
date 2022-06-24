@@ -22,10 +22,17 @@ p = zeros(size(X, 1), 1);
 %
 
 % X: 5000 x 400 (there are 5000 many 20x20 images)
-
-a2 = sigmoid(Theta1 * [1; X]);
-output = sigmoid(Theta2 * [1; a2]);
-[~, p] = max(X * transpose(all_theta), [], 2);
+% Theta1 has size 25 x 401
+% Theta2 has size 10 x 26
+X = transpose(X);
+X = [ones(1,m); X];
+a2 = sigmoid(Theta1 * X);
+% a2 = 25 x 5000
+a2 = [ones(1,m); a2];
+% a2 = 26 x 5000 (bias unit)
+output = sigmoid(Theta2 * a2);
+% output = 10 x 
+[~, p] = max(transpose(output), [], 2);
 
 
 

@@ -33,6 +33,19 @@ output = sigmoid(a2 * transpose(Theta2));
 % output = 5000 x 10
 [~, p] = max(output, [], 2);
 
+% Another way of doing this: 
+%{
+X = transpose(X);  % X: 400 x 5000
+X = [ones(1,m); X];  % X: 401 x 500
+a2 = sigmoid(Theta1 * X); % (25x401) * (401x5000) = 25x5000
+% a2 = 25 x 5000
+a2 = [ones(1,m); a2]; % 26 x 5000
+% a2 = 26 x 5000 (bias unit)
+output = sigmoid(Theta2 * a2); % (10x26) * (26x5000) = 10x5000 
+% output = 10 x 5000  (first row corresponds to the probability of it being
+% class 1 for each training example)
+[~, p] = max(transpose(output), [], 2);
+}%
 
 
 
