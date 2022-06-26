@@ -30,8 +30,8 @@ J = (1/m) * sum(transpose(-y) * log(sigmoid(X * theta))   - transpose(1- y) * lo
 % theta vector = (n+1)x1
 % grad = (n+1)x1
 
-grad = (1/m) .* (transpose(X) * (sigmoid(X * theta) - y)) + (lambda/m) .* theta;
-grad(1) = grad(1) - (lambda/m) .* theta(1);
+grad = (1/m) * (transpose(X) * (sigmoid(X * theta) - y)) + (lambda/m) * theta;
+grad(1) = grad(1) - (lambda/m) * theta(1);
 
 
 % =============================================================
