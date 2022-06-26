@@ -53,11 +53,42 @@ error_val   = zeros(m, 1);
 
 % ---------------------- Sample Solution ----------------------
 
+for i = 1:m
+    X_trainingSet = X(1:i,:);
+    y_trainingSet = y(1:i, :);
 
+    theta = trainLinearReg(X_trainingSet, y_trainingSet, lambda);
+    error_train(i) = linearRegCostFunction(X_trainingSet, y_trainingSet, theta, zeros(size(lambda)));  % error is calculated without regularization
+    error_val(i) =  linearRegCostFunction(Xval, yval, theta, zeros(size(lambda))); 
+end
 
+% optional exercise
+%{
+itr = 50;
+for i = 1:m
+    error_train_acc = 0;
+    error_val_acc = 0;
+    for j = 1:itr
+        nelements = size(X, 1);
+        SampleSize = i;
+        randices = randsample(1:nelements,SampleSize,false);
+        X_trainingSet = X(randices, :);
+        y_trainingSet = y(randices, :);
+    
+        nelements = size(Xval, 1);
+        randices = randsample(1:nelements,SampleSize,false);
+        X_valSet = Xval(randices, :);
+        y_valSet = yval(randices, :);
 
+        theta = trainLinearReg(X_trainingSet, y_trainingSet, lambda);
+        error_train_acc = error_train_acc + linearRegCostFunction(X_trainingSet, y_trainingSet, theta, zeros(size(lambda))); 
+        error_val_acc = error_val_acc + linearRegCostFunction(X_valSet, y_valSet, theta, zeros(size(lambda))); 
+    end
+    error_train(i) = error_train_acc / itr;
+    error_val(i) = error_val_acc / itr;
 
-
+end
+%}
 
 % -------------------------------------------------------------
 

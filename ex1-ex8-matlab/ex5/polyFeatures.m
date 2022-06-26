@@ -16,7 +16,8 @@ X_poly = zeros(numel(X), p);
 % 
 
 
-
+exp = repmat(1:p,numel(X),1);
+X_poly = X .^ exp;
 
 
 
