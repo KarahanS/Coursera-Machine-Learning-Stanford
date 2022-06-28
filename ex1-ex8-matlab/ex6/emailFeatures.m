@@ -48,7 +48,8 @@ x = zeros(n, 1);
 %
 %
 
-
+a = 1:n;
+x = any(word_indices(:) == a);
 
 
 
