@@ -22,6 +22,8 @@ X_rec = zeros(size(Z, 1), size(U, 1));
 %               
 
 
+U_reduce = U(:, 1:K);   % n x k  matrix
+X_rec = Z * transpose(U_reduce) ;    % Z = m x k
 
 % =============================================================
 

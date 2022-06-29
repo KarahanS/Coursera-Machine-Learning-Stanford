@@ -26,6 +26,12 @@ centroids = zeros(K, n);
 % Note: You can use a for-loop over the centroids to compute this.
 %
 
+for i=1:size(centroids,1) % size(X,1)
+    b = (idx == i);  % 1 if X(idx) belongs to this centroid, 0 otherwise:  m x 1 vector
+    n = sum(b);      % number of points in this cluster
+    centroids(i, :) = sum(X .* b) / n;
+end
+
 
 
 

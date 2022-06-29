@@ -19,9 +19,13 @@ idx = zeros(size(X,1), 1);
 %               range 1..K
 %
 % Note: You can use a for-loop over the examples to compute this.
-%
 
+% X: m x n
+% idx = m x 1
 
+for i=1:size(X,1) % size(X,1)
+    [~, idx(i)] = min(sum((repmat(X(i, :), K, 1)- centroids) .^ 2, 2));
+end
 
 
 
