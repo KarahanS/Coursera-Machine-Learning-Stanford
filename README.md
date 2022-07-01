@@ -1,6 +1,8 @@
 # Coursera-Machine-Learning-Stanford
 My solutions to all the programming assignments of Machine Learning course given by Andrew Ng. Try to solve all the assignments by yourself first, but if you get stuck somewhere then feel free to browse the code.
 
+* [Certificate](https://www.coursera.org/account/accomplishments/certificate/DFPJJ7MV32YC)
+
 # Contents 
 | Week          | Assignment    |Grade  |
 | ------------- |:-------------:| :-----:|
