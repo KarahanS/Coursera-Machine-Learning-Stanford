@@ -47,14 +47,18 @@ Theta_grad = zeros(size(Theta));
 
 % Some (movie, user) pairs are marked as question mark - indicating that
 % the user has not rated the movie yet. In order to avoid adding them to
-% the calculation, multiply the summation with R in an element-wise manner.
-J = (1 / 2)* sum(sum(R .* (X * transpose(Theta) - Y) .^ 2))+ (lambda/2) * sum(sum(Theta .^ 2)) + (lambda/2) * sum(sum(X .^ 2));
+% the calculation, multiply the summation with R
+J = (1 / 2)* sum(sum(R .* (X * transpose(Theta) - Y) .^ 2));
 
-% transpose(X) = num_features x num_movies
-% X_grad = num_features x num_users
-X_grad = R .* (X * transpose(Theta) - Y) * Theta + lambda * X;
-% Theta_grad = num_features x num_movies
-Theta_grad = transpose(R .* (X * transpose(Theta) - Y)) * X + lambda * Theta;
+
+
+
+
+
+
+
+
+
 
 
 
